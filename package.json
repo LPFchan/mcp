@@ -1,0 +1,10 @@
+{
+  "name": "obsidian-mcp",
+  "version": "2.1.0",
+  "private": true,
+  "type": "module",
+  "main": "server.mjs",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0"
+  }
+}
