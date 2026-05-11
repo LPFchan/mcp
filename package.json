@@ -4,6 +4,10 @@
   "private": true,
   "type": "module",
   "main": "server.mjs",
+  "scripts": {
+    "test": "node --test-concurrency=1 --test tests/",
+    "start": "node server.mjs"
+  },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.29.0"
   }
