@@ -1,4 +1,7 @@
 FROM node:20-alpine
+RUN apk add --no-cache git && \
+    git config --global user.name "obsidian-autocommit" && \
+    git config --global user.email "obsidian@localhost"
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm install --production
