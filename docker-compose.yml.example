@@ -1,0 +1,18 @@
+services:
+  obsidian-mcp:
+    build: .
+    container_name: mcp
+    user: "1000:1000"
+    mem_limit: 512m
+    memswap_limit: 512m
+    oom_score_adj: 500
+    restart: unless-stopped
+    environment:
+      - HOME=/tmp
+      - VAULT_PATH=/vault/Obsidian Vault
+      - ALLOWED_ORIGINS=https://*.lost.plus
+      - MCP_TOKEN=${MCP_TOKEN:-YOUR_TOKEN_HERE}
+    ports:
+      - 127.0.0.1:3000:3000
+    volumes:
+      - /home/ubuntu/vault:/vault
