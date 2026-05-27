@@ -2,6 +2,7 @@ services:
   obsidian-mcp:
     build: .
     container_name: mcp
+    init: true
     user: "1000:1000"
     mem_limit: 512m
     memswap_limit: 512m
