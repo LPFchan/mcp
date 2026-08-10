@@ -1,6 +1,13 @@
 # obsidian-mcp
 
-Single-container MCP server for an Obsidian vault. Handles authentication, CORS, SSE streaming, and exposes 14 vault-management tools — no nginx or supergateway needed.
+Single-container MCP server for an Obsidian vault. Handles authentication, CORS, and exposes 15 vault-management tools — no nginx or supergateway needed.
+
+## Protocol
+
+The server uses the official MCP TypeScript SDK v2. Its HTTP endpoint serves the
+`2026-07-28` stateless protocol through `server/discover` and keeps a stateless
+legacy fallback for clients that still use the `initialize` handshake. Tool
+registration and protocol validation remain in the SDK.
 
 ## Quick start
 
@@ -66,4 +73,4 @@ npm install
 npm test
 ```
 
-59 tests across 18 suites covering every tool, auth, CORS, and edge cases.
+61 tests across 23 suites covering every tool, protocol negotiation, auth, CORS, and edge cases.
