@@ -5,7 +5,7 @@
   "type": "module",
   "main": "server.mjs",
   "scripts": {
-    "test": "node --test-concurrency=1 --test tests/",
+    "test": "node --test-concurrency=1 --test tests/*.test.mjs",
     "start": "node server.mjs"
   },
   "dependencies": {

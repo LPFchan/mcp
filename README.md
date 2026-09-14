@@ -1,6 +1,8 @@
 # obsidian-mcp
 
-Single-container MCP server for an Obsidian vault. Handles authentication, CORS, and exposes 15 vault-management tools — no nginx or supergateway needed.
+Single-container MCP server for an Obsidian vault. It handles CORS and exposes
+15 vault-management tools. Production authentication is centralized in the
+Common Auth gateway.
 
 ## Protocol
 
@@ -39,12 +41,15 @@ services:
 | Variable | Default | Description |
 |---|---|---|
 | `VAULT_PATH` | (required) | Path to the Obsidian vault inside the container |
-| `MCP_TOKEN` | `f304...fcb` | API token for Bearer or URL-path auth |
 | `PORT` | `3000` | HTTP listen port |
 | `ALLOWED_ORIGIN` | `https://chat.lost.plus` | CORS allowed origin |
 | `HOST` | `0.0.0.0` | Bind address |
 
-Authentication supports both `Authorization: Bearer <token>` headers and URL-path tokens (`/<token>/mcp`).
+The production endpoint is `https://mcp.lost.plus/mcp`. The shared Common Auth
+gateway protects it with the `obsidian` scope. Send a Common Auth token as
+`Authorization: Bearer <token>` or `X-API-Key: <token>`. The backend does not
+authenticate requests itself and must remain bound to localhost behind the
+gateway. Tokens in URL paths are no longer supported.
 
 ## Tools
 

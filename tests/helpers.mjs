@@ -5,8 +5,6 @@ import path from 'path';
 import os from 'os';
 import http from 'http';
 
-export const TEST_TOKEN = '0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef';
-
 export function makeRpc(method, params = {}) {
   return { jsonrpc: '2.0', method, params, id: 1 };
 }
@@ -29,7 +27,6 @@ export async function createTempVault(slug) {
 
 export async function startServer(vaultPath) {
   const { start, close } = createApp(vaultPath, {
-    token: TEST_TOKEN,
     host: '127.0.0.1',
     port: 0,
     allowedOrigin: '*',
@@ -46,7 +43,6 @@ export async function startServer(vaultPath) {
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json, text/event-stream',
-          'Authorization': `Bearer ${TEST_TOKEN}`,
           'Connection': 'close',
           ...headers,
         },

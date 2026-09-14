@@ -12,7 +12,6 @@ services:
       - HOME=/tmp
       - VAULT_PATH=/vault/Obsidian Vault
       - ALLOWED_ORIGINS=https://*.lost.plus
-      - MCP_TOKEN=${MCP_TOKEN}
     ports:
       - 127.0.0.1:3000:3000
     volumes:
