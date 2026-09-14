@@ -43,7 +43,7 @@ services:
 | `VAULT_PATH` | (required) | Path to the Obsidian vault inside the container |
 | `PORT` | `3000` | HTTP listen port |
 | `ALLOWED_ORIGIN` | `https://chat.lost.plus` | CORS allowed origin |
-| `HOST` | `0.0.0.0` | Bind address |
+| `HOST` | `127.0.0.1` | Bind address; Compose explicitly uses `0.0.0.0` inside the container |
 
 The production endpoint is `https://mcp.lost.plus/mcp`. The shared Common Auth
 gateway protects it with the `obsidian` scope. Send a Common Auth token as
