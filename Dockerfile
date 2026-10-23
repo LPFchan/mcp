@@ -1,4 +1,4 @@
-FROM node:20-alpine
+FROM node:22-alpine
 RUN apk add --no-cache git && \
     git config --global user.name "obsidian-autocommit" && \
     git config --global user.email "obsidian@localhost"
