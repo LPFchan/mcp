@@ -9,8 +9,8 @@
     "start": "node server.mjs"
   },
   "dependencies": {
-    "express": "^5.1.0",
-    "@modelcontextprotocol/node": "^2.0.0",
-    "@modelcontextprotocol/server": "^2.0.0"
+    "@modelcontextprotocol/node": "^2.1.2",
+    "@modelcontextprotocol/server": "^2.4.0",
+    "express": "^5.1.0"
   }
 }
